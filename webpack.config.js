@@ -23,6 +23,7 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
+      // chunks: ['index', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'],
     }),
   ],
 };

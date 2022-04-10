@@ -1,10 +1,23 @@
 // @ts-check
 
 import i18next from 'i18next';
+import * as yup from 'yup';
 import ru from '../locales/index.js';
 import app from './main.js';
 
 export default () => {
+  const state = {
+    current: [],
+    status: 'pending',
+    feeds: [],
+    posts: [],
+    readed: [],
+  };
+  yup.setLocale({
+    string: {
+      url: () => 'invalid',
+    },
+  });
   const i18nInstance = i18next.createInstance();
   i18nInstance
     .init({
@@ -15,8 +28,8 @@ export default () => {
       },
     })
     .then((t) => {
-      console.log(t('feedback.success'));
-      console.log(i18nInstance);
-      app(t);
+      // console.log(t('feedback.success'));
+      // console.log(i18nInstance);
+      app(state, t, yup);
     });
 };
