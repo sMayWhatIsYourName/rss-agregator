@@ -1,9 +1,5 @@
 import * as bootstrap from 'bootstrap';
 
-// SOLVE ESLINT PROBLEM
-const version = bootstrap.Modal.VERSION;
-version.split('');
-// SOLVE ESLINT PROBLEM
 export const displayStatus = (status, text) => {
   const input = document.querySelector('#url-input');
   const feedback = document.querySelector('.feedback');
