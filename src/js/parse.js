@@ -33,7 +33,7 @@ const getData = (parsed, postIndex, feedIndex) => {
   return result;
 };
 
-export default (link, postIndex, feedIndex) => axios.get(`https://allorigins.hexlet.app/get?url=${encodeURIComponent(link)}`)
+export default (link, postIndex, feedIndex) => axios.get(`https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(link)}`)
   .then((response) => {
     console.log(response);
     if (response.statusText === 'OK') return response.data.contents;
