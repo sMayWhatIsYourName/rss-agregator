@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "",
   "type": "module",
+  "main": "./src/js/init.js",
   "scripts": {
     "start": "webpack serve --mode=development",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production"
   },
-  "main": "src/index.js",
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/eslint-parser": "^7.15.4",
