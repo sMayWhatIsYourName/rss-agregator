@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const getData = (parsed, postIndex, feedIndex) => {
   const feedTitle = parsed.querySelector('title');
   const feedDescription = parsed.querySelector('description');
@@ -31,14 +33,14 @@ const getData = (parsed, postIndex, feedIndex) => {
   return result;
 };
 
-export default (link, postIndex, feedIndex) => fetch(`https://allorigins.hexlet.app/get?url=${encodeURIComponent(link)}`)
+export default (link, postIndex, feedIndex) => axios.get(`https://allorigins.hexlet.app/get?url=${encodeURIComponent(link)}`)
   .then((response) => {
-    if (response.ok) return response.json();
+    console.log(response);
+    if (response.statusText === 'OK') return response.data.contents;
     throw new Error('NetworkErr');
   })
   .then((data) => {
     const parser = new DOMParser();
-    const parsed = parser.parseFromString(data.contents, 'application/xml');
-    console.log(getData(parsed, postIndex, feedIndex));
+    const parsed = parser.parseFromString(data, 'text/xml');
     return getData(parsed, postIndex, feedIndex);
   });

@@ -40,7 +40,7 @@ export default (state, nextInstance, yup) => {
         // console.log(watchedState.posts);
       })
       .catch((err) => {
-        console.log(err.message);
+        // console.log(err.message);
         watchedState.status = err.message;
       })
       .then(() => toggleForm(false));
