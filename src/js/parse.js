@@ -42,6 +42,9 @@ export default (link, postIndex, feedIndex) => axios.get(`https://allorigins.hex
     console.log(data);
     const parser = new DOMParser();
     const parsed = parser.parseFromString(data, 'text/xml');
-    console.log(getData(parsed, postIndex, feedIndex));
-    return getData(parsed, postIndex, feedIndex);
+    try {
+      return getData(parsed, postIndex, feedIndex);
+    } catch (e) {
+      throw new Error('notContaining');
+    }
   });
