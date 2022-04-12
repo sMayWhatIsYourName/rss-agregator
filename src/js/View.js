@@ -1,5 +1,3 @@
-import * as bootstrap from 'bootstrap';
-
 export const displayStatus = (status, text) => {
   const input = document.querySelector('#url-input');
   const feedback = document.querySelector('.feedback');
