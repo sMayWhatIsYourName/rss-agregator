@@ -39,5 +39,6 @@ export default (link, postIndex, feedIndex) => fetch(`https://allorigins.hexlet.
   .then((data) => {
     const parser = new DOMParser();
     const parsed = parser.parseFromString(data.contents, 'application/xml');
+    console.log(getData(parsed, postIndex, feedIndex));
     return getData(parsed, postIndex, feedIndex);
   });
