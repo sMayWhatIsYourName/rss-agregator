@@ -34,13 +34,8 @@ const getData = (parsed, postIndex, feedIndex) => {
 };
 
 export default (link, postIndex, feedIndex) => axios.get(`https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(link)}`)
-  // .then((response) => {
-  //   if (response.statusText === 'OK') return response.data.contents;
-  //   throw new Error('NetworkErr');
-  // })
   .then(({ data }) => data.contents)
   .then((data) => {
-    console.log(data);
     const parser = new DOMParser();
     const parsed = parser.parseFromString(data, 'text/xml');
     try {
