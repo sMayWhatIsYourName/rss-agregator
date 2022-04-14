@@ -6,22 +6,14 @@ import '../scss/style.scss';
 import parse from './parse.js';
 
 const updatePosts = (state) => {
-  // let count = 0;
   const parsed = state.current.map((feed, index) => {
-    // console.log(feed);
     const currentFeed = state.feeds.at(-index - 1);
     const currentPosts = state.posts.filter(({ feedIndex }) => currentFeed.id === feedIndex);
     const postsTitles = currentPosts.map(({ title }) => title);
-    // console.log(currentPosts);
     const { id: feedIndex } = currentFeed;
     const { id: startIndex } = currentPosts[0];
     return parse(feed, startIndex, feedIndex)
       .then(({ posts }) => posts
-        // .map((post) => {
-        //   const newPost = post;
-        //   newPost.id += state.posts.length;
-        //   return newPost;
-        // })
         .filter(({ title }) => !postsTitles.includes(title)));
   });
   Promise.all(parsed)
@@ -34,8 +26,6 @@ const updatePosts = (state) => {
       });
       const newState = state;
       newState.posts = [].concat(...newArr, ...state.posts);
-      console.log(state.posts);
-      // state.posts.unshift(...newArr);
     });
   setTimeout(updatePosts, 5000, state);
 };
@@ -72,10 +62,8 @@ export default (state, nextInstance, yup) => {
         const { feed, posts } = data;
         watchedState.feeds.unshift(feed);
         watchedState.posts.unshift(...posts);
-        // console.log(watchedState.posts);
       })
       .catch((err) => {
-        // console.log(err.message);
         watchedState.status = err.message;
       })
       .then(() => toggleForm(false));

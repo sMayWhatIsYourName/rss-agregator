@@ -28,8 +28,6 @@ export default () => {
       },
     })
     .then((t) => {
-      // console.log(t('feedback.success'));
-      // console.log(i18nInstance);
       app(state, t, yup);
     });
 };

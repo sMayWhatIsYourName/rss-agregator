@@ -73,29 +73,10 @@ const createFeedList = (state) => {
   list.replaceChildren(...children);
 };
 
-// const binarySearch = (arr, findId) => {
-//   let low = 0;
-//   let high = arr.length - 1;
-//   while (low <= high) {
-//     const mid = Math.floor((low + high) / 2);
-//     const { id } = arr[mid];
-//     if (id === findId) {
-//       return arr[mid];
-//     }
-//     if (id > findId) {
-//       high = mid - 1;
-//     } else {
-//       low = mid + 1;
-//     }
-//   }
-//   return null;
-// };
-
 export const render = (state, nextInstance) => {
   const posts = document.querySelector('.posts');
   posts.addEventListener('click', (e) => {
     const post = state.posts.find(({ id }) => id === +e.target.dataset.id);
-    // const post = binarySearch(state.posts, +e.target.dataset.id);
     const link = document.querySelector(`a[data-id="${post.id}"]`);
     link.classList.replace('fw-bold', 'fw-normal');
     link.classList.add('link-secondary');
