@@ -36,7 +36,9 @@ make start
 
 #### Проверить работоспособность можно вставив эти ссылки в поле ввода:
 http://lorem-rss.herokuapp.com/feed?unit=second&interval=10
+
 https://www.sport.ru/rssfeeds/basketball.rss
+
 https://habr.com/ru/rss/all/all/?fl=ru
 
 ## Ссылка на проект:
